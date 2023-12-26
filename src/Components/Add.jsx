@@ -4,7 +4,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { uploadNewVideoAPI } from '../services/allAPI';
 
-function Add() {
+function Add({setUploadVideoResponse}) {
 const [uploadVideo,setUploadVideo]=useState({id:"",caption:"",url:"",link:""})
   const [show, setShow] = useState(false);
 console.log(uploadVideo);
@@ -40,6 +40,7 @@ const handleUpload=async ()=>{
       setUploadVideo({id:"",caption:"",url:"",link:""
 
       })
+      setUploadVideoResponse(result.data)
     }
     else{
       alert(result.message)
